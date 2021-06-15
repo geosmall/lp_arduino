@@ -1,0 +1,50 @@
+Flexi Port
+----------
+UART3 TX/I2C2 SLC - PB10 (21)
+UART3 RX/I2C2 SDA - PB11 (22)
+
+SPI Flash
+---------
+SPI2 NSS - PB12 (25)
+SPI2 SCLK - PB13 (26)
+SPI2 MISO - PB14 (27)
+SPI2 MOSI - PB15 (28)
+
+N/C - PC13 (2)
+
+MPU-6000
+--------
+Gyro INT - PA3 (13) (WHT)
+SPI1_NSS - PA4 (14)	(GRY) /CS
+SPI1_SCK - PA5 (15) (ORG) SCL/SCLK
+SPI1_MISO - PA6 (16) (YEL) AD0/SDO
+SPI1_MOSI - PA7 (17) (GRN) SDA/SDI
+
+Main Port
+---------
+UART1 TX - PA9 (30)
+UART1 RX - PA10 (31)
+
+USB Port
+--------
+USB DM - PA11 (32)
+USB DP - PA12 (33)
+VBUS Sense - PC14 (3)
+
+Inputs
+------
+S1 IN (TIM4:1) - PB6 (42)
+S2 IN (TIM3:2) - PB5 (41)
+S3 IN (TIM3:3) - PB0 (18)
+S4 IN (TIM3:4) - PB1 (19)
+S5 IN (TIM2:1) - PA0 (10)
+S6 IN (TIM2:2) - PA1 (11)
+
+Outputs
+-------
+S1 OUT (TIM4:4) - PB9 (46)
+S2 OUT (TIM4:3) - PB8 (45)
+S3 OUT (TIM4:2) - PB7 (43)
+S4 OUT (TIM1:1) - PA8 (29)
+S5 OUT (TIM3:1) - PB4 (40)
+S6 OUT (TIM2:3) - PA2 (12)

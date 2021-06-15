@@ -1,0 +1,328 @@
+# See: https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification
+
+menu.pnum=Board part number
+
+menu.xserial=Serial interface
+menu.usb=USB interface
+
+menu.opt=Optimize
+menu.rtlib=C Runtime Library
+menu.upload_method=Upload method
+menu.flash=Flash Memory Size
+menu.ram=RAM Size
+
+
+################################################################################
+# Nucleo 64 boards
+
+Nucleo_64.name=Nucleo-64
+
+Nucleo_64.build.vid=0x0483
+Nucleo_64.build.pid=0x5711
+Nucleo_64.vid.0=0x0483
+Nucleo_64.pid.0=0x5711
+
+Nucleo_64.build.core=lp_stm32f4
+Nucleo_64.build.board=Nucleo_64
+Nucleo_64.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+
+# NUCLEO_F302R8 board
+# Support: Serial1 (USART1 on PA10, PA9) and Serial2 (USART2 on PA1, PA0)
+Nucleo_64.menu.pnum.NUCLEO_F302R8=Nucleo F302R8
+Nucleo_64.menu.pnum.NUCLEO_F302R8.node=NODE_F302R8
+Nucleo_64.menu.pnum.NUCLEO_F302R8.upload.maximum_size=65536
+Nucleo_64.menu.pnum.NUCLEO_F302R8.upload.maximum_data_size=16384
+Nucleo_64.menu.pnum.NUCLEO_F302R8.build.mcu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+Nucleo_64.menu.pnum.NUCLEO_F302R8.build.board=NUCLEO_F302R8
+Nucleo_64.menu.pnum.NUCLEO_F302R8.build.series=STM32F30x
+Nucleo_64.menu.pnum.NUCLEO_F302R8.build.product_line=STM32F302x8
+Nucleo_64.menu.pnum.NUCLEO_F302R8.build.variant=NUCLEO_F302R8
+Nucleo_64.menu.pnum.NUCLEO_F302R8.build.cmsis_lib_gcc=arm_cortexM4l_math
+
+# NUCLEO_F303RE board
+# Support: Serial1 (USART1 on PA10, PA9) and Serial2 (USART2 on PA1, PA0)
+Nucleo_64.menu.pnum.NUCLEO_F303RE=Nucleo F303RE
+Nucleo_64.menu.pnum.NUCLEO_F303RE.node=NODE_F303RE
+Nucleo_64.menu.pnum.NUCLEO_F303RE.upload.maximum_size=524288
+Nucleo_64.menu.pnum.NUCLEO_F303RE.upload.maximum_data_size=65536
+Nucleo_64.menu.pnum.NUCLEO_F303RE.build.mcu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+Nucleo_64.menu.pnum.NUCLEO_F303RE.build.board=NUCLEO_F303RE
+Nucleo_64.menu.pnum.NUCLEO_F303RE.build.series=STM32F30x
+Nucleo_64.menu.pnum.NUCLEO_F303RE.build.product_line=STM32F303xE
+Nucleo_64.menu.pnum.NUCLEO_F303RE.build.variant=NUCLEO_F303RE
+Nucleo_64.menu.pnum.NUCLEO_F303RE.build.cmsis_lib_gcc=arm_cortexM4l_math
+
+# NUCLEO_F405RG board
+# Support: Serial1 (USART1 on PA10, PA9) and Serial2 (USART3 on PB10, PB11)
+Nucleo_64.menu.pnum.NUCLEO_F405RG=Nucleo F405RG
+Nucleo_64.menu.pnum.NUCLEO_F405RG.node="NODE_F405RG,NUCLEO"
+Nucleo_64.menu.pnum.NUCLEO_F405RG.upload.maximum_size=1048576
+Nucleo_64.menu.pnum.NUCLEO_F405RG.upload.maximum_data_size=196608
+Nucleo_64.menu.pnum.NUCLEO_F405RG.build.mcu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+Nucleo_64.menu.pnum.NUCLEO_F405RG.build.board=NUCLEO_F405RG
+Nucleo_64.menu.pnum.NUCLEO_F405RG.build.series=STM32F4xx
+Nucleo_64.menu.pnum.NUCLEO_F405RG.build.product_line=STM32F405xx
+Nucleo_64.menu.pnum.NUCLEO_F405RG.build.variant=NUCLEO_F405RG
+Nucleo_64.menu.pnum.NUCLEO_F405RG.build.cmsis_lib_gcc=arm_cortexM4l_math
+
+# NUCLEO_F411RE board
+# Support: Serial1 (USART1 on PA10, PA9) and Serial2 (USART2 on PC7, PC6)
+Nucleo_64.menu.pnum.NUCLEO_F411RE=Nucleo F411RE
+Nucleo_64.menu.pnum.NUCLEO_F411RE.node="NODE_F411RE,NUCLEO"
+Nucleo_64.menu.pnum.NUCLEO_F411RE.upload.maximum_size=524288
+Nucleo_64.menu.pnum.NUCLEO_F411RE.upload.maximum_data_size=131072
+Nucleo_64.menu.pnum.NUCLEO_F411RE.build.mcu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+Nucleo_64.menu.pnum.NUCLEO_F411RE.build.board=NUCLEO_F411RE
+Nucleo_64.menu.pnum.NUCLEO_F411RE.build.series=STM32F4xx
+Nucleo_64.menu.pnum.NUCLEO_F411RE.build.product_line=STM32F411xE
+Nucleo_64.menu.pnum.NUCLEO_F411RE.build.variant=NUCLEO_F411RE
+Nucleo_64.menu.pnum.NUCLEO_F411RE.build.cmsis_lib_gcc=arm_cortexM4l_math
+
+# Upload menu
+Nucleo_64.menu.upload_method.MassStorage=Mass Storage
+Nucleo_64.menu.upload_method.MassStorage.upload.protocol=
+Nucleo_64.menu.upload_method.MassStorage.upload.tool=massStorageCopy
+
+Nucleo_64.menu.upload_method.STLink=STLink
+Nucleo_64.menu.upload_method.STLink.upload.protocol=STLink
+Nucleo_64.menu.upload_method.STLink.upload.tool=stlink_upload
+
+################################################################################
+# Generic F1
+
+GenF1.name=Generic STM32F1 series
+
+GenF1.build.vid=0x1EAF
+GenF1.build.pid=0x0004
+GenF1.vid.0=0x1EAF
+GenF1.pid.0=0x0004
+
+GenF1.build.core=fw_stm32f1
+GenF1.build.board=GenF1
+GenF1.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+
+# BL F103CB CC3D: https://opwiki.readthedocs.io/en/latest/user_manual/cc3d/index.html
+GenF1.menu.pnum.BL_F103CB_CC3D=BL F103CB CC3D
+GenF1.menu.pnum.BL_F103CB_CC3D.build.core=bl_stm32f1
+GenF1.menu.pnum.BL_F103CB_CC3D.upload.maximum_size=131072
+GenF1.menu.pnum.BL_F103CB_CC3D.upload.maximum_data_size=20480
+GenF1.menu.pnum.BL_F103CB_CC3D.build.mcu=-mthumb -mcpu=cortex-m3 --specs=nano.specs
+GenF1.menu.pnum.BL_F103CB_CC3D.build.board=F103CB_CC3D
+GenF1.menu.pnum.BL_F103CB_CC3D.build.series=STM32F10x
+GenF1.menu.pnum.BL_F103CB_CC3D.build.product_line=STM32F103xB
+GenF1.menu.pnum.BL_F103CB_CC3D.build.variant=F103CB_CC3D
+GenF1.menu.pnum.BL_F103CB_CC3D.build.ld_memory=link_STM32103CB_CC_Rev1_memory
+GenF1.menu.pnum.BL_F103CB_CC3D.build.ld_sections=link_STM32103CB_CC_Rev1_BL_sections
+GenF1.menu.pnum.BL_F103CB_CC3D.build.defines=BL_DEFINES.inc
+GenF1.menu.pnum.BL_F103CB_CC3D.build.extra_flags=
+
+# FW F103CB CC3D: https://opwiki.readthedocs.io/en/latest/user_manual/cc3d/index.html
+GenF1.menu.pnum.FW_F103CB_CC3D=FW F103CB CC3D
+GenF1.menu.pnum.FW_F103CB_CC3D.build.core=fw_stm32f1
+GenF1.menu.pnum.FW_F103CB_CC3D.upload.maximum_size=131072
+GenF1.menu.pnum.FW_F103CB_CC3D.upload.maximum_data_size=20480
+GenF1.menu.pnum.FW_F103CB_CC3D.build.mcu=-mthumb -mcpu=cortex-m3 --specs=nano.specs
+GenF1.menu.pnum.FW_F103CB_CC3D.build.board=F103CB_CC3D
+GenF1.menu.pnum.FW_F103CB_CC3D.build.series=STM32F10x
+GenF1.menu.pnum.FW_F103CB_CC3D.build.product_line=STM32F103xB
+GenF1.menu.pnum.FW_F103CB_CC3D.build.variant=F103CB_CC3D
+GenF1.menu.pnum.FW_F103CB_CC3D.build.ld_memory=link_STM32103CB_CC_Rev1_memory
+GenF1.menu.pnum.FW_F103CB_CC3D.build.ld_sections=link_STM32103CB_CC_Rev1_sections
+GenF1.menu.pnum.FW_F103CB_CC3D.build.defines=FW_DEFINES.inc
+GenF1.menu.pnum.FW_F103CB_CC3D.build.extra_flags=-ffast-math "-I{build.core.path}/flight/pios/common/libraries/FreeRTOS/Source/include" "-I{build.core.path}/flight/pios/common/libraries/FreeRTOS/Source/portable/GCC/ARM_CM3" "-I{build.core.path}/flight/uavobjects/inc" "-I{build.core.path}/flight/uavtalk/inc" "-I{build.core.path}/flight/libraries/math" "-I{build.core.path}/flight/libraries/pid" "-I{build.core.path}/flight/build/firmware/uavobjects" "-I{build.core.path}/flight/modules/Actuator/inc" "-I{build.core.path}/flight/modules/Attitude/inc" "-I{build.core.path}/flight/modules/CameraStab/inc" "-I{build.core.path}/flight/modules/FirmwareIAP/inc"  "-I{build.core.path}/flight/modules/GPS/inc" "-I{build.core.path}/flight/modules/ManualControl/inc" "-I{build.core.path}/flight/modules/Osd/osdoutput/inc" "-I{build.core.path}/flight/modules/Stabilization/inc" "-I{build.core.path}/flight/modules/System/inc" "-I{build.core.path}/flight/modules/Telemetry/inc" "-I{build.core.path}/flight/modules/TxPID/inc" "-I{build.core.path}/flight/libraries/mavlink/v1.0/common"
+
+# FW NO BL F103CB CC3D: https://opwiki.readthedocs.io/en/latest/user_manual/cc3d/index.html
+GenF1.menu.pnum.FW_NOBL_F103CB_CC3D=FW NO BL F103CB CC3D
+GenF1.menu.pnum.FW_NOBL_F103CB_CC3D.build.core=fw_no_bl_stm32f1
+GenF1.menu.pnum.FW_NOBL_F103CB_CC3D.upload.maximum_size=131072
+GenF1.menu.pnum.FW_NOBL_F103CB_CC3D.upload.maximum_data_size=20480
+GenF1.menu.pnum.FW_NOBL_F103CB_CC3D.build.mcu=-mthumb -mcpu=cortex-m3 --specs=nano.specs
+GenF1.menu.pnum.FW_NOBL_F103CB_CC3D.build.board=F103CB_CC3D
+GenF1.menu.pnum.FW_NOBL_F103CB_CC3D.build.series=STM32F10x
+GenF1.menu.pnum.FW_NOBL_F103CB_CC3D.build.product_line=STM32F103xB
+GenF1.menu.pnum.FW_NOBL_F103CB_CC3D.build.variant=F103CB_NO_BL_CC3D
+GenF1.menu.pnum.FW_NOBL_F103CB_CC3D.build.ld_memory=link_STM32103CB_CC_Rev1_memory
+GenF1.menu.pnum.FW_NOBL_F103CB_CC3D.build.ld_sections=link_STM32103CB_CC_Rev1_sections
+GenF1.menu.pnum.FW_NOBL_F103CB_CC3D.build.defines=FW_DEFINES.inc
+GenF1.menu.pnum.FW_NOBL_F103CB_CC3D.build.extra_flags=-ffast-math "-I{build.core.path}/flight/pios/common/libraries/FreeRTOS/Source/include" "-I{build.core.path}/flight/pios/common/libraries/FreeRTOS/Source/portable/GCC/ARM_CM3" "-I{build.core.path}/flight/uavobjects/inc" "-I{build.core.path}/flight/uavtalk/inc" "-I{build.core.path}/flight/libraries/math" "-I{build.core.path}/flight/libraries/pid" "-I{build.core.path}/flight/build/firmware/uavobjects" "-I{build.core.path}/flight/modules/Actuator/inc" "-I{build.core.path}/flight/modules/Attitude/inc" "-I{build.core.path}/flight/modules/CameraStab/inc" "-I{build.core.path}/flight/modules/FirmwareIAP/inc"  "-I{build.core.path}/flight/modules/GPS/inc" "-I{build.core.path}/flight/modules/ManualControl/inc" "-I{build.core.path}/flight/modules/Osd/osdoutput/inc" "-I{build.core.path}/flight/modules/Stabilization/inc" "-I{build.core.path}/flight/modules/System/inc" "-I{build.core.path}/flight/modules/Telemetry/inc" "-I{build.core.path}/flight/modules/TxPID/inc" "-I{build.core.path}/flight/libraries/mavlink/v1.0/common"
+
+# Upload menu
+GenF1.menu.upload_method.JLink=JLink
+GenF1.menu.upload_method.JLink.upload.protocol=JLink
+GenF1.menu.upload_method.JLink.upload.tool=jlink_upload
+
+GenF1.menu.upload_method.STLink=STLink
+GenF1.menu.upload_method.STLink.upload.protocol=STLink
+GenF1.menu.upload_method.STLink.upload.tool=stlink_upload
+
+GenF1.menu.upload_method.bmpMethod=BMP (Black Magic Probe)
+GenF1.menu.upload_method.bmpMethod.upload.protocol=gdb_bmp
+GenF1.menu.upload_method.bmpMethod.upload.tool=bmp_upload
+
+################################################################################
+# Generic F4
+
+GenF4.name=Generic STM32F4 series
+
+GenF4.build.vid=0x1EAF
+GenF4.build.pid=0x0004
+GenF4.vid.0=0x1EAF
+GenF4.pid.0=0x0004
+
+GenF4.build.core=fw_stm32f4
+GenF4.build.board=GenF4
+GenF4.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+
+# BL F405RG Revo: https://librepilot.atlassian.net/wiki/spaces/LPDOC/pages/26968084/OpenPilot+Revolution
+GenF4.menu.pnum.BL_F405RG_revo=BL F405RG Revo
+GenF4.menu.pnum.BL_F405RG_revo.build.core=bl_stm32f4
+GenF4.menu.pnum.BL_F405RG_revo.upload.maximum_size=1048576
+GenF4.menu.pnum.BL_F405RG_revo.upload.maximum_data_size=196608
+GenF4.menu.pnum.BL_F405RG_revo.build.mcu=-mthumb -mcpu=cortex-m4 -march=armv7e-m -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+GenF4.menu.pnum.BL_F405RG_revo.build.board=F405RG_revo
+GenF4.menu.pnum.BL_F405RG_revo.build.series=STM32F4xx
+GenF4.menu.pnum.BL_F405RG_revo.build.product_line=STM32F405xx
+GenF4.menu.pnum.BL_F405RG_revo.build.variant=F405RG_revo
+GenF4.menu.pnum.BL_F405RG_revo.build.ld_memory=link_STM32F4xx_RM_bl_memory
+GenF4.menu.pnum.BL_F405RG_revo.build.ld_sections=link_STM32F4xx_RM_sections
+GenF4.menu.pnum.BL_F405RG_revo.build.defines=BL_DEFINES.inc
+GenF4.menu.pnum.BL_F405RG_revo.build.extra_flags=
+
+# BL F411RE Revo Nano: https://librepilot.atlassian.net/wiki/spaces/LPDOC/pages/26968079/OpenPilot+Revolution+Nano
+# Support: Serial1 (USART1 on PA10, PA9)
+# Default SPI: SPI (SPI1 on PB3,PB4,PB5)
+GenF4.menu.pnum.BL_F411RE_revonano=BL F411RE Revo Nano
+GenF4.menu.pnum.BL_F411RE_revonano.build.core=bl_stm32f4
+GenF4.menu.pnum.BL_F411RE_revonano.upload.maximum_size=524288
+GenF4.menu.pnum.BL_F411RE_revonano.upload.maximum_data_size=131072
+GenF4.menu.pnum.BL_F411RE_revonano.build.mcu=-mthumb -mcpu=cortex-m4 -march=armv7e-m -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+GenF4.menu.pnum.BL_F411RE_revonano.build.board=F411RE_revonano
+GenF4.menu.pnum.BL_F411RE_revonano.build.series=STM32F4xx
+GenF4.menu.pnum.BL_F411RE_revonano.build.product_line=STM32F411xE
+GenF4.menu.pnum.BL_F411RE_revonano.build.variant=F411RE_revonano
+GenF4.menu.pnum.BL_F411RE_revonano.build.ld_memory=link_STM32F4xx_RN_bl_memory
+GenF4.menu.pnum.BL_F411RE_revonano.build.ld_sections=link_STM32F4xx_RN_sections
+GenF4.menu.pnum.BL_F411RE_revonano.build.defines=BL_DEFINES.inc
+GenF4.menu.pnum.BL_F411RE_revonano.build.extra_flags=
+
+# FW F405RG Revo: https://librepilot.atlassian.net/wiki/spaces/LPDOC/pages/26968084/OpenPilot+Revolution
+# Support: Serial1 (USART1 on PA10, PA9)
+# Default SPI: SPI (SPI1 on PB3,PB4,PB5)
+GenF4.menu.pnum.FW_F405RG_revo=FW F405RG Revo
+GenF4.menu.pnum.FW_F405RG_revo.build.core=fw_stm32f4
+GenF4.menu.pnum.FW_F405RG_revo.upload.maximum_size=1048576
+GenF4.menu.pnum.FW_F405RG_revo.upload.maximum_data_size=196608
+GenF4.menu.pnum.FW_F405RG_revo.build.mcu=-mthumb -mcpu=cortex-m4 -march=armv7e-m -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+GenF4.menu.pnum.FW_F405RG_revo.build.board=F405RG_revo
+GenF4.menu.pnum.FW_F405RG_revo.build.series=STM32F4xx
+GenF4.menu.pnum.FW_F405RG_revo.build.product_line=STM32F405xx
+GenF4.menu.pnum.FW_F405RG_revo.build.variant=F405RG_revo
+GenF4.menu.pnum.FW_F405RG_revo.build.ld_memory=link_STM32F4xx_RM_fw_memory
+GenF4.menu.pnum.FW_F405RG_revo.build.ld_sections=link_STM32F4xx_RM_sections
+GenF4.menu.pnum.FW_F405RG_revo.build.defines=FW_DEFINES.inc
+GenF4.menu.pnum.FW_F405RG_revo.build.extra_flags=-ffast-math "-I{build.core.path}/flight/pios/common/libraries/FreeRTOS/Source/include" "-I{build.core.path}/flight/pios/common/libraries/FreeRTOS/Source/portable/GCC/ARM_CM4F" "-I{build.core.path}/flight/pios/common/libraries/msheap" "-I{build.core.path}/flight/uavobjects/inc" "-I{build.core.path}/flight/uavtalk/inc" "-I{build.core.path}/flight/libraries/math" "-I{build.core.path}/flight/libraries/pid" "-I{build.core.path}/flight/libraries/rscode" "-I{build.core.path}/build/firmware/uavobjects" "-I{build.core.path}/flight/modules/Actuator/inc" "-I{build.core.path}/flight/modules/Airspeed/inc" "-I{build.core.path}/flight/modules/Battery/inc" "-I{build.core.path}/flight/modules/CameraStab/inc"  "-I{build.core.path}/flight/modules/FirmwareIAP/inc"  "-I{build.core.path}/flight/modules/GPS/inc"  "-I{build.core.path}/flight/modules/ManualControl/inc"  "-I{build.core.path}/flight/modules/Notify/inc" "-I{build.core.path}/flight/modules/PathFollower/inc" "-I{build.core.path}/flight/modules/PathPlanner/inc" "-I{build.core.path}/flight/modules/Sensors/inc" "-I{build.core.path}/flight/modules/Stabilization/inc" "-I{build.core.path}/flight/modules/StateEstimation/inc" "-I{build.core.path}/flight/modules/System/inc" "-I{build.core.path}/flight/modules/Telemetry/inc" "-I{build.core.path}/flight/modules/TxPID/inc" "-I{build.core.path}/flight/libraries/mavlink/v1.0/common"
+
+# Upload menu
+GenF4.menu.upload_method.JLink=JLink
+GenF4.menu.upload_method.JLink.upload.protocol=JLink
+GenF4.menu.upload_method.JLink.upload.tool=jlink_upload
+
+GenF4.menu.upload_method.STLink=STLink
+GenF4.menu.upload_method.STLink.upload.protocol=STLink
+GenF4.menu.upload_method.STLink.upload.tool=stlink_upload
+
+GenF4.menu.upload_method.bmpMethod=BMP (Black Magic Probe)
+GenF4.menu.upload_method.bmpMethod.upload.protocol=gdb_bmp
+GenF4.menu.upload_method.bmpMethod.upload.tool=bmp_upload
+
+################################################################################
+
+# Serialx activation
+Nucleo_64.menu.xserial.generic=Enabled with generic Serial
+Nucleo_64.menu.xserial.none=Enabled without generic Serial
+Nucleo_64.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+Nucleo_64.menu.xserial.disabled=Disabled (No Serial)
+Nucleo_64.menu.xserial.disabled.build.xSerial=
+
+GenF1.menu.xserial.generic=Enabled with generic Serial
+GenF1.menu.xserial.none=Enabled without generic Serial
+GenF1.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+GenF1.menu.xserial.disabled=Disabled (No Serial)
+GenF1.menu.xserial.disabled.build.xSerial=
+
+GenF4.menu.xserial.generic=Enabled with generic Serial
+GenF4.menu.xserial.none=Enabled without generic Serial
+GenF4.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+GenF4.menu.xserial.disabled=Disabled (No Serial)
+GenF4.menu.xserial.disabled.build.xSerial=
+
+# USB connectivity
+Nucleo_64.menu.usb.none=None
+Nucleo_64.menu.usb.HID=HID keyboard and mouse support (if available)
+Nucleo_64.menu.usb.HID.build.enable_usb={build.usb_flags} -DUSBD_USE_HID_COMPOSITE
+#Nucleo_64.menu.usb.CDC=CDC (if available)
+#Nucleo_64.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DUSE_USB_FS
+
+# Optimizations
+Nucleo_64.menu.opt.ogstd=Debug (-g)
+Nucleo_64.menu.opt.ogstd.build.flags.optimize=-g -Og
+Nucleo_64.menu.opt.osstd=Smallest (-Os default)
+Nucleo_64.menu.opt.o1std=Fast (-O1)
+Nucleo_64.menu.opt.o1std.build.flags.optimize=-O1
+Nucleo_64.menu.opt.o2std=Faster (-O2)
+Nucleo_64.menu.opt.o2std.build.flags.optimize=-O2
+Nucleo_64.menu.opt.o3std=Fastest (-O3)
+Nucleo_64.menu.opt.o3std.build.flags.optimize=-O3
+
+GenF1.menu.opt.ogstd=Debug (-g)
+GenF1.menu.opt.ogstd.build.flags.optimize=-Og -gdwarf-2
+GenF1.menu.opt.osstd=Smallest (-Os default)
+GenF1.menu.opt.osstd.build.flags.optimize=-Os -gdwarf-2
+GenF1.menu.opt.o1std=Fast (-O1)
+GenF1.menu.opt.o1std.build.flags.optimize=-O1
+GenF1.menu.opt.o2std=Faster (-O2)
+GenF1.menu.opt.o2std.build.flags.optimize=-O2
+GenF1.menu.opt.o3std=Fastest (-O3)
+GenF1.menu.opt.o3std.build.flags.optimize=-O3
+
+GenF4.menu.opt.ogstd=Debug (-g)
+GenF4.menu.opt.ogstd.build.flags.optimize=-Og -gdwarf-2
+GenF4.menu.opt.osstd=Smallest (-Os default)
+GenF4.menu.opt.osstd.build.flags.optimize=-Os -gdwarf-2
+GenF4.menu.opt.o1std=Fast (-O1)
+GenF4.menu.opt.o1std.build.flags.optimize=-O1
+GenF4.menu.opt.o2std=Faster (-O2)
+GenF4.menu.opt.o2std.build.flags.optimize=-O2
+GenF4.menu.opt.o3std=Fastest (-O3)
+GenF4.menu.opt.o3std.build.flags.optimize=-O3
+
+# C Runtime Library
+Nucleo_64.menu.rtlib.nano=Newlib Nano (default)
+Nucleo_64.menu.rtlib.nanofp=Newlib Nano + Float Printf
+Nucleo_64.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+Nucleo_64.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+Nucleo_64.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+Nucleo_64.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+Nucleo_64.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+Nucleo_64.menu.rtlib.full=Newlib Standard
+Nucleo_64.menu.rtlib.full.build.flags.ldspecs=
+
+GenF1.menu.rtlib.nano=Newlib Nano (default)
+GenF1.menu.rtlib.nanofp=Newlib Nano + Float Printf
+GenF1.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+GenF1.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+GenF1.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+GenF1.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+GenF1.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+GenF1.menu.rtlib.full=Newlib Standard
+GenF1.menu.rtlib.full.build.flags.ldspecs=
+
+GenF4.menu.rtlib.nano=Newlib Nano (default)
+GenF4.menu.rtlib.nanofp=Newlib Nano + Float Printf
+GenF4.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+GenF4.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+GenF4.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+GenF4.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+GenF4.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+GenF4.menu.rtlib.full=Newlib Standard
+GenF4.menu.rtlib.full.build.flags.ldspecs=
