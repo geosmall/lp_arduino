@@ -9,12 +9,12 @@ version=1.0.0
 
 # STM compile variables
 # ----------------------
-compiler.stm.extra_include="-I{build.source.path}" "-I{build.core.path}/flight/pios/{build.series}/inc" "-I{build.core.path}/flight/pios/common/libraries/CMSIS/Include" "-I{build.core.path}/flight/pios/{build.series}/libraries/CMSIS/Device/ST/{build.series}/Include" "-I{build.core.path}/flight/pios/{build.series}/libraries/{build.series}_StdPeriph_Driver/inc" "-I{build.core.path}/flight/pios/{build.series}/libraries/STM32_USB_OTG_Driver/inc" "-I{build.core.path}/flight/pios/{build.series}/libraries/STM32_USB_Device_Library/Core/inc" "-I{build.core.path}/flight/pios" "-I{build.core.path}/flight/pios/inc" "-I{build.core.path}/flight/libraries/inc" "-I{build.variant.path}"
+compiler.stm.extra_include="-I{build.source.path}" "-I{build.core.path}/flight/pios/{build.series}/inc" "-I{build.core.path}/flight/pios/common/libraries/CMSIS/Include" "-I{build.core.path}/flight/pios/{build.series}/libraries/CMSIS/Device/ST/{build.series}/Include" "-I{build.core.path}/flight/pios/{build.series}/libraries/{build.series}_StdPeriph_Driver/inc" "-I{build.core.path}/flight/pios/{build.series}/libraries/STM32_USB_OTG_Driver/inc" "-I{build.core.path}/flight/pios/{build.series}/libraries/STM32_USB_Device_Library/Core/inc" "-I{build.core.path}/flight/pios" "-I{build.core.path}/flight/pios/inc" "-I{build.core.path}/flight/libraries/inc" "-I{build.core.path}/flight/libraries/math" "-I{build.variant.path}"
 compiler.warning_flags=-w
 compiler.warning_flags.none=-w
 compiler.warning_flags.default=
 compiler.warning_flags.more=-Wall
-compiler.warning_flags.all=-Wall -Wextra -Wfloat-equal -Wdouble-promotion -Wshadow -Werror
+compiler.warning_flags.all=-Wall -Wextra -Wfloat-equal -Wdouble-promotion -Wshadow -Werror -Wno-unused-parameter -Wno-unused-variable -Wno-comment
 
 # compiler.path={runtime.tools.arm-none-eabi-gcc-6-2017-q2-update.path}/bin/
 compiler.path=C:/Users/geoma/AppData/Local/Arduino15/packages/STM32/tools/arm-none-eabi-gcc/4_9-2015-q2-update/bin/

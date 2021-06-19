@@ -26,32 +26,6 @@ Nucleo_64.build.core=lp_stm32f4
 Nucleo_64.build.board=Nucleo_64
 Nucleo_64.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
 
-# NUCLEO_F302R8 board
-# Support: Serial1 (USART1 on PA10, PA9) and Serial2 (USART2 on PA1, PA0)
-Nucleo_64.menu.pnum.NUCLEO_F302R8=Nucleo F302R8
-Nucleo_64.menu.pnum.NUCLEO_F302R8.node=NODE_F302R8
-Nucleo_64.menu.pnum.NUCLEO_F302R8.upload.maximum_size=65536
-Nucleo_64.menu.pnum.NUCLEO_F302R8.upload.maximum_data_size=16384
-Nucleo_64.menu.pnum.NUCLEO_F302R8.build.mcu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard
-Nucleo_64.menu.pnum.NUCLEO_F302R8.build.board=NUCLEO_F302R8
-Nucleo_64.menu.pnum.NUCLEO_F302R8.build.series=STM32F30x
-Nucleo_64.menu.pnum.NUCLEO_F302R8.build.product_line=STM32F302x8
-Nucleo_64.menu.pnum.NUCLEO_F302R8.build.variant=NUCLEO_F302R8
-Nucleo_64.menu.pnum.NUCLEO_F302R8.build.cmsis_lib_gcc=arm_cortexM4l_math
-
-# NUCLEO_F303RE board
-# Support: Serial1 (USART1 on PA10, PA9) and Serial2 (USART2 on PA1, PA0)
-Nucleo_64.menu.pnum.NUCLEO_F303RE=Nucleo F303RE
-Nucleo_64.menu.pnum.NUCLEO_F303RE.node=NODE_F303RE
-Nucleo_64.menu.pnum.NUCLEO_F303RE.upload.maximum_size=524288
-Nucleo_64.menu.pnum.NUCLEO_F303RE.upload.maximum_data_size=65536
-Nucleo_64.menu.pnum.NUCLEO_F303RE.build.mcu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard
-Nucleo_64.menu.pnum.NUCLEO_F303RE.build.board=NUCLEO_F303RE
-Nucleo_64.menu.pnum.NUCLEO_F303RE.build.series=STM32F30x
-Nucleo_64.menu.pnum.NUCLEO_F303RE.build.product_line=STM32F303xE
-Nucleo_64.menu.pnum.NUCLEO_F303RE.build.variant=NUCLEO_F303RE
-Nucleo_64.menu.pnum.NUCLEO_F303RE.build.cmsis_lib_gcc=arm_cortexM4l_math
-
 # NUCLEO_F405RG board
 # Support: Serial1 (USART1 on PA10, PA9) and Serial2 (USART3 on PB10, PB11)
 Nucleo_64.menu.pnum.NUCLEO_F405RG=Nucleo F405RG
@@ -155,10 +129,6 @@ GenF1.menu.upload_method.STLink=STLink
 GenF1.menu.upload_method.STLink.upload.protocol=STLink
 GenF1.menu.upload_method.STLink.upload.tool=stlink_upload
 
-GenF1.menu.upload_method.bmpMethod=BMP (Black Magic Probe)
-GenF1.menu.upload_method.bmpMethod.upload.protocol=gdb_bmp
-GenF1.menu.upload_method.bmpMethod.upload.tool=bmp_upload
-
 ################################################################################
 # Generic F4
 
@@ -172,38 +142,6 @@ GenF4.pid.0=0x0004
 GenF4.build.core=fw_stm32f4
 GenF4.build.board=GenF4
 GenF4.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
-
-# BL F405RG Revo: https://librepilot.atlassian.net/wiki/spaces/LPDOC/pages/26968084/OpenPilot+Revolution
-GenF4.menu.pnum.BL_F405RG_revo=BL F405RG Revo
-GenF4.menu.pnum.BL_F405RG_revo.build.core=bl_stm32f4
-GenF4.menu.pnum.BL_F405RG_revo.upload.maximum_size=1048576
-GenF4.menu.pnum.BL_F405RG_revo.upload.maximum_data_size=196608
-GenF4.menu.pnum.BL_F405RG_revo.build.mcu=-mthumb -mcpu=cortex-m4 -march=armv7e-m -mfpu=fpv4-sp-d16 -mfloat-abi=hard
-GenF4.menu.pnum.BL_F405RG_revo.build.board=F405RG_revo
-GenF4.menu.pnum.BL_F405RG_revo.build.series=STM32F4xx
-GenF4.menu.pnum.BL_F405RG_revo.build.product_line=STM32F405xx
-GenF4.menu.pnum.BL_F405RG_revo.build.variant=F405RG_revo
-GenF4.menu.pnum.BL_F405RG_revo.build.ld_memory=link_STM32F4xx_RM_bl_memory
-GenF4.menu.pnum.BL_F405RG_revo.build.ld_sections=link_STM32F4xx_RM_sections
-GenF4.menu.pnum.BL_F405RG_revo.build.defines=BL_DEFINES.inc
-GenF4.menu.pnum.BL_F405RG_revo.build.extra_flags=
-
-# BL F411RE Revo Nano: https://librepilot.atlassian.net/wiki/spaces/LPDOC/pages/26968079/OpenPilot+Revolution+Nano
-# Support: Serial1 (USART1 on PA10, PA9)
-# Default SPI: SPI (SPI1 on PB3,PB4,PB5)
-GenF4.menu.pnum.BL_F411RE_revonano=BL F411RE Revo Nano
-GenF4.menu.pnum.BL_F411RE_revonano.build.core=bl_stm32f4
-GenF4.menu.pnum.BL_F411RE_revonano.upload.maximum_size=524288
-GenF4.menu.pnum.BL_F411RE_revonano.upload.maximum_data_size=131072
-GenF4.menu.pnum.BL_F411RE_revonano.build.mcu=-mthumb -mcpu=cortex-m4 -march=armv7e-m -mfpu=fpv4-sp-d16 -mfloat-abi=hard
-GenF4.menu.pnum.BL_F411RE_revonano.build.board=F411RE_revonano
-GenF4.menu.pnum.BL_F411RE_revonano.build.series=STM32F4xx
-GenF4.menu.pnum.BL_F411RE_revonano.build.product_line=STM32F411xE
-GenF4.menu.pnum.BL_F411RE_revonano.build.variant=F411RE_revonano
-GenF4.menu.pnum.BL_F411RE_revonano.build.ld_memory=link_STM32F4xx_RN_bl_memory
-GenF4.menu.pnum.BL_F411RE_revonano.build.ld_sections=link_STM32F4xx_RN_sections
-GenF4.menu.pnum.BL_F411RE_revonano.build.defines=BL_DEFINES.inc
-GenF4.menu.pnum.BL_F411RE_revonano.build.extra_flags=
 
 # FW F405RG Revo: https://librepilot.atlassian.net/wiki/spaces/LPDOC/pages/26968084/OpenPilot+Revolution
 # Support: Serial1 (USART1 on PA10, PA9)
@@ -230,10 +168,6 @@ GenF4.menu.upload_method.JLink.upload.tool=jlink_upload
 GenF4.menu.upload_method.STLink=STLink
 GenF4.menu.upload_method.STLink.upload.protocol=STLink
 GenF4.menu.upload_method.STLink.upload.tool=stlink_upload
-
-GenF4.menu.upload_method.bmpMethod=BMP (Black Magic Probe)
-GenF4.menu.upload_method.bmpMethod.upload.protocol=gdb_bmp
-GenF4.menu.upload_method.bmpMethod.upload.tool=bmp_upload
 
 ################################################################################
 
