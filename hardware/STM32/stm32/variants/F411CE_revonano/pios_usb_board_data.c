@@ -28,7 +28,7 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-#include "inc/pios_usb_board_data.h" /* struct usb_*, USB_* */
+#include "pios_usb_board_data.h" /* struct usb_*, USB_* */
 #include <pios_sys.h> /* PIOS_SYS_SerialNumberGet */
 #include <pios_usbhook.h> /* PIOS_USBHOOK_* */
 #include <pios_usb_util.h> /* PIOS_USB_UTIL_AsciiToUtf8 */
