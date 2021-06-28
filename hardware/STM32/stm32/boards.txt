@@ -177,6 +177,23 @@ GenF4.menu.pnum.FW_F411CE_revonano.build.ld_sections=link_STM32F4xx_RN_sections
 GenF4.menu.pnum.FW_F411CE_revonano.build.defines=FW_DEFINES.inc
 GenF4.menu.pnum.FW_F411CE_revonano.build.extra_flags=-ffast-math "-I{build.core.path}/flight/pios/common/libraries/FreeRTOS/Source/include" "-I{build.core.path}/flight/pios/common/libraries/FreeRTOS/Source/portable/GCC/ARM_CM4F" "-I{build.core.path}/flight/pios/common/libraries/msheap" "-I{build.core.path}/flight/uavobjects/inc" "-I{build.core.path}/flight/uavtalk/inc" "-I{build.core.path}/flight/libraries/math" "-I{build.core.path}/flight/libraries/pid" "-I{build.core.path}/flight/libraries/rscode" "-I{build.core.path}/flight/build/firmware/uavobjects" "-I{build.core.path}/flight/modules/Actuator/inc" "-I{build.core.path}/flight/modules/Airspeed/inc" "-I{build.core.path}/flight/modules/Battery/inc" "-I{build.core.path}/flight/modules/CameraStab/inc"  "-I{build.core.path}/flight/modules/FirmwareIAP/inc"  "-I{build.core.path}/flight/modules/GPS/inc"  "-I{build.core.path}/flight/modules/ManualControl/inc"  "-I{build.core.path}/flight/modules/Notify/inc" "-I{build.core.path}/flight/modules/PathFollower/inc" "-I{build.core.path}/flight/modules/PathPlanner/inc" "-I{build.core.path}/flight/modules/Sensors/inc" "-I{build.core.path}/flight/modules/Stabilization/inc" "-I{build.core.path}/flight/modules/StateEstimation/inc" "-I{build.core.path}/flight/modules/System/inc" "-I{build.core.path}/flight/modules/Telemetry/inc" "-I{build.core.path}/flight/modules/TxPID/inc" "-I{build.core.path}/flight/libraries/mavlink/v1.0/common"
 
+# FW F411CE NOXE V1: https://github.com/markusgritsch/SilF4ware/tree/master/Targets/STM32F411%20NOXE_V1
+# Support: Serial1 (USART1 on PA10, PA9)
+# Default SPI: SPI (SPI1 on PB3,PB4,PB5)
+GenF4.menu.pnum.FW_F411CE_NOXEV1=FW F411CE NOXE V1
+GenF4.menu.pnum.FW_F411CE_NOXEV1.build.core=fw_stm32f4
+GenF4.menu.pnum.FW_F411CE_NOXEV1.upload.maximum_size=425856
+GenF4.menu.pnum.FW_F411CE_NOXEV1.upload.maximum_data_size=131072
+GenF4.menu.pnum.FW_F411CE_NOXEV1.build.mcu=-mthumb -mcpu=cortex-m4 -march=armv7e-m -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+GenF4.menu.pnum.FW_F411CE_NOXEV1.build.board=F411CE_NOXEV1
+GenF4.menu.pnum.FW_F411CE_NOXEV1.build.series=STM32F4xx
+GenF4.menu.pnum.FW_F411CE_NOXEV1.build.product_line=STM32F411xx
+GenF4.menu.pnum.FW_F411CE_NOXEV1.build.variant=F411CE_NOXE_V1
+GenF4.menu.pnum.FW_F411CE_NOXEV1.build.ld_memory=link_STM32F4xx_RN_fw_memory
+GenF4.menu.pnum.FW_F411CE_NOXEV1.build.ld_sections=link_STM32F4xx_RN_sections
+GenF4.menu.pnum.FW_F411CE_NOXEV1.build.defines=FW_DEFINES.inc
+GenF4.menu.pnum.FW_F411CE_NOXEV1.build.extra_flags=-ffast-math "-I{build.core.path}/flight/pios/common/libraries/FreeRTOS/Source/include" "-I{build.core.path}/flight/pios/common/libraries/FreeRTOS/Source/portable/GCC/ARM_CM4F" "-I{build.core.path}/flight/pios/common/libraries/msheap" "-I{build.core.path}/flight/uavobjects/inc" "-I{build.core.path}/flight/uavtalk/inc" "-I{build.core.path}/flight/libraries/math" "-I{build.core.path}/flight/libraries/pid" "-I{build.core.path}/flight/libraries/rscode" "-I{build.core.path}/flight/build/firmware/uavobjects" "-I{build.core.path}/flight/modules/Actuator/inc" "-I{build.core.path}/flight/modules/Airspeed/inc" "-I{build.core.path}/flight/modules/Battery/inc" "-I{build.core.path}/flight/modules/CameraStab/inc"  "-I{build.core.path}/flight/modules/FirmwareIAP/inc"  "-I{build.core.path}/flight/modules/GPS/inc"  "-I{build.core.path}/flight/modules/ManualControl/inc"  "-I{build.core.path}/flight/modules/Notify/inc" "-I{build.core.path}/flight/modules/PathFollower/inc" "-I{build.core.path}/flight/modules/PathPlanner/inc" "-I{build.core.path}/flight/modules/Sensors/inc" "-I{build.core.path}/flight/modules/Stabilization/inc" "-I{build.core.path}/flight/modules/StateEstimation/inc" "-I{build.core.path}/flight/modules/System/inc" "-I{build.core.path}/flight/modules/Telemetry/inc" "-I{build.core.path}/flight/modules/TxPID/inc" "-I{build.core.path}/flight/libraries/mavlink/v1.0/common"
+
 # Upload menu
 GenF4.menu.upload_method.JLink=JLink
 GenF4.menu.upload_method.JLink.upload.protocol=JLink
