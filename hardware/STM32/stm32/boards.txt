@@ -154,7 +154,7 @@ GenF4.menu.pnum.FW_F405RG_revo.build.mcu=-mthumb -mcpu=cortex-m4 -march=armv7e-m
 GenF4.menu.pnum.FW_F405RG_revo.build.board=F405RG_revo
 GenF4.menu.pnum.FW_F405RG_revo.build.series=STM32F4xx
 GenF4.menu.pnum.FW_F405RG_revo.build.product_line=STM32F405xx
-GenF4.menu.pnum.FW_F405RG_revo.build.variant=F405RG_NO_BL_revo
+GenF4.menu.pnum.FW_F405RG_revo.build.variant=F405RG_revo
 GenF4.menu.pnum.FW_F405RG_revo.build.ld_memory=link_STM32F4xx_RM_fw_memory
 GenF4.menu.pnum.FW_F405RG_revo.build.ld_sections=link_STM32F4xx_RM_sections
 GenF4.menu.pnum.FW_F405RG_revo.build.defines=FW_DEFINES.inc
@@ -171,7 +171,7 @@ GenF4.menu.pnum.FW_F411CE_revonano.build.mcu=-mthumb -mcpu=cortex-m4 -march=armv
 GenF4.menu.pnum.FW_F411CE_revonano.build.board=F411CE_revonano
 GenF4.menu.pnum.FW_F411CE_revonano.build.series=STM32F4xx
 GenF4.menu.pnum.FW_F411CE_revonano.build.product_line=STM32F411xx
-GenF4.menu.pnum.FW_F411CE_revonano.build.variant=F411CE_NO_BL_revonano
+GenF4.menu.pnum.FW_F411CE_revonano.build.variant=F411CE_revonano
 GenF4.menu.pnum.FW_F411CE_revonano.build.ld_memory=link_STM32F4xx_RN_fw_memory
 GenF4.menu.pnum.FW_F411CE_revonano.build.ld_sections=link_STM32F4xx_RN_sections
 GenF4.menu.pnum.FW_F411CE_revonano.build.defines=FW_DEFINES.inc

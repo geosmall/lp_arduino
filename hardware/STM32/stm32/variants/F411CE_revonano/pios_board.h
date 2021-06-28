@@ -199,6 +199,9 @@ extern uint32_t pios_packet_handler;
 // #define PIOS_PERIPHERAL_CLOCK
 // #define PIOS_PERIPHERAL_CLOCK
 
+#define OSCILLATOR_FREQ 8000000
+#define SYSCLK_FREQ     96000000
+
 #define PIOS_SYSCLK SYSCLK_FREQ
 // Peripherals that belongs to APB1 are:
 // DAC			|PWR				|CAN1,2
