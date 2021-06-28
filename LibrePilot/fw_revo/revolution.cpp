@@ -63,6 +63,8 @@ int main()
 
     SystemModStart();
 
+    DEBUG_PRINTF(2, "Initializing, system status: %d\n\r", 1);
+
     /* Start the FreeRTOS scheduler */
     vTaskStartScheduler();
 

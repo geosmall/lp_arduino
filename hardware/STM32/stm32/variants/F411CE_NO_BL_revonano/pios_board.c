@@ -288,6 +288,7 @@ static void PIOS_Board_configure_dsm(const struct pios_usart_cfg *pios_usart_dsm
     pios_rcvr_group_map[channelgroup] = pios_dsm_rcvr_id;
 }
 
+#if defined(PIOS_INCLUDE_IBUS)
 static void PIOS_Board_configure_ibus(const struct pios_usart_cfg *usart_cfg)
 {
     uint32_t pios_usart_ibus_id;
@@ -308,6 +309,7 @@ static void PIOS_Board_configure_ibus(const struct pios_usart_cfg *usart_cfg)
 
     pios_rcvr_group_map[MANUALCONTROLSETTINGS_CHANNELGROUPS_IBUS] = pios_ibus_rcvr_id;
 }
+#endif // #if defined(PIOS_INCLUDE_IBUS)
 
 static void PIOS_Board_configure_pwm(const struct pios_pwm_cfg *pwm_cfg)
 {
