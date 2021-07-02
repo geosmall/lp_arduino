@@ -510,6 +510,15 @@ void PIOS_Board_Init(void)
     uint8_t hwsettings_DSMxBind;
     HwSettingsDSMxBindGet(&hwsettings_DSMxBind);
 
+// GLS - temporary <<<<<
+// extern void setFlexiPortOptionToDebugConsole(void);
+// setFlexiPortOptionToDebugConsole();
+    HwSettingsData currentHwSettings;
+    HwSettingsGet(&currentHwSettings);
+    currentHwSettings.RM_FlexiPort = HWSETTINGS_RM_FLEXIPORT_DEBUGCONSOLE;
+    HwSettingsSet(&currentHwSettings);    
+// GLS - temporary <<<<<
+
     /* Configure FlexiPort */
     uint8_t hwsettings_flexiport;
     HwSettingsRM_FlexiPortGet(&hwsettings_flexiport);

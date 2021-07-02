@@ -37,7 +37,6 @@ extern "C" {
 #include <uavobjectsinit.h>
 #include <systemmod.h>
 
-
 /* Global Variables */
 
 /* Local Variables */
@@ -61,9 +60,8 @@ int main()
     /* Brings up System using CMSIS functions, enables the LEDs. */
     PIOS_SYS_Init();
 
+    /* Creates systemTask, which in turn initializes board via PIOS_Board_Init() */ 
     SystemModStart();
-
-    DEBUG_PRINTF(2, "Initializing, system status: %d\n\r", 1);
 
     /* Start the FreeRTOS scheduler */
     vTaskStartScheduler();
