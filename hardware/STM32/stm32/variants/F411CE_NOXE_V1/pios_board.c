@@ -385,6 +385,7 @@ void PIOS_Board_Init(void)
 
     uintptr_t flash_id = 0;
 
+#if 0 // GLS
     // Initialize the external USER flash
     if (PIOS_Flash_EEPROM_Init(&flash_id, &flash_main_chip_cfg, pios_i2c_pressure_adapter_id, 0x50)) {
         PIOS_DEBUG_Assert(0);
@@ -393,6 +394,16 @@ void PIOS_Board_Init(void)
     if (PIOS_FLASHFS_Init(&pios_uavo_settings_fs_id, &flash_main_fs_cfg, &pios_EEPROM_flash_driver, flash_id)) {
         PIOS_DEBUG_Assert(0);
     }
+#else // GLS
+    // Initialize the external USER flash
+    if (PIOS_Flash_Jedec_Init(&flash_id, pios_spi_telem_flash_id, 1)) {
+        PIOS_DEBUG_Assert(0);
+    }
+
+    if (PIOS_FLASHFS_Logfs_Init(&pios_uavo_settings_fs_id, &flashfs_external_system_cfg, &pios_jedec_flash_driver, flash_id)) {
+        PIOS_DEBUG_Assert(0);
+    }
+#endif // GLS
 
 #endif /* if defined(PIOS_INCLUDE_FLASH) */
 
