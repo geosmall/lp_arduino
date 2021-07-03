@@ -12,17 +12,17 @@ This board use the STM32F411CEU6 microcontroller and have the following features
 * Supports I2C device extend(baro/compass/OLED etc)
 * Supports GPS 
 
-### All uarts have pad on board 
+### All UARTs have pads on board 
 | Value | Identifier   | RX   | TX   | Notes                                                                                       |
 | ----- | ------------ | -----| -----| ------------------------------------------------------------------------------------------- |
-| 1     | USART1       | PB7 |  PB6 | FOR SBUS IN(inverter build in)                                                      |
-| 2     | USART2       | PA3 |  PA2|  FOR VTX SM/IRC ETC                                                                                    |
+| 1     | USART1       | PB7 |  PB6 | FOR SBUS IN (inverter built in)                                                      |
+| 2     | USART2       | PA3 |  PA2 | FOR VTX SM/IRC, ETC                                                                                    |
 
 
-### I2C with GPS port together.Use for BARO or compass etc 
+### I2C with GPS port together. Use for BARO or compass etc 
 | Value | Identifier   |  SCL  |  SDA  | Notes                                                                                 |
 | ----- | ------------ | ---------| -------| ------------------------------------------------------------------------------------- |                                                                                      
-| 1     | I2C1         |    PB8   |  PB9   | with GPS outlet
+| 1     | I2C1         |    PB8   |  PB9   | With GPS output
 
 
 ### Buzzer/LED output 
@@ -32,7 +32,7 @@ This board use the STM32F411CEU6 microcontroller and have the following features
 | 2     | BEEPER       |    BEE   |  PC14  | 
 
 
-### VBAT input with 1/10 divider ratio,Current signal input,Analog/digit RSSI input
+### VBAT input with 1/10 divider ratio, Current signal input, Analog/digit RSSI input
 | Value | Identifier   | function  |  pin  | Notes                                                                                 |
 | ----- | ------------ | ----------| ------| ------------------------------------------------------------------------------------- |                                                                                       
 | 1     | ADC1         |    VBAT   |  PA0  |  DMA2_Stream0
