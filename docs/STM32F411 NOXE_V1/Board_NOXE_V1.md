@@ -20,10 +20,9 @@ This board use the STM32F411CEU6 microcontroller and have the following features
 
 
 ### I2C with GPS port together.Use for BARO or compass etc 
-| Value | Identifier   | function |  pin   | Notes                                                                                 |
+| Value | Identifier   |  SCL  |  SDA  | Notes                                                                                 |
 | ----- | ------------ | ---------| -------| ------------------------------------------------------------------------------------- |                                                                                      
-| 1     | I2C1         |    SDA   |  PB9   | with GPS outlet
-| 2     | I2C1         |    SCL   |  PB8   | with GPS outlet
+| 1     | I2C1         |    PB8   |  PB9   | with GPS outlet
 
 
 ### Buzzer/LED output 
