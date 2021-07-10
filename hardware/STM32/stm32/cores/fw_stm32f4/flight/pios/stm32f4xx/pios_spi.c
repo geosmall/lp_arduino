@@ -411,6 +411,9 @@ int32_t PIOS_SPI_TransferByte(uint32_t spi_id, uint8_t b)
 // uint8_t dummy;
     uint8_t rx_byte;
 
+    uint8_t byte_to_transfer;
+    byte_to_transfer = b;
+
     /*
      * Procedure taken from STM32F10xxx Reference Manual section 23.3.5
      */
@@ -419,7 +422,7 @@ int32_t PIOS_SPI_TransferByte(uint32_t spi_id, uint8_t b)
     /*dummy =*/ (void)spi_dev->cfg->regs->DR;
 
     /* Start the transfer */
-    spi_dev->cfg->regs->DR = b;
+    spi_dev->cfg->regs->DR = byte_to_transfer;
 
     /* Wait until there is a byte to read */
     while (!(spi_dev->cfg->regs->SR & SPI_I2S_FLAG_RXNE)) {

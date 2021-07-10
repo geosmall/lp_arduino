@@ -15,11 +15,11 @@ This board use the STM32F411CEU6 microcontroller and have the following features
 ### All UARTs have pads on board 
 | Value | Identifier   | RX   | TX   | Notes                                                                                       |
 | ----- | ------------ | -----| -----| ------------------------------------------------------------------------------------------- |
-| 1     | USART1       | PB7 |  PB6 | FOR SBUS IN (inverter built in)                                                      |
-| 2     | USART2       | PA3 |  PA2 | FOR VTX SM/IRC, ETC                                                                                    |
+| 1     | USART1       | PB7 |  PB6 | For SBUS IN (inverter built in)                                                      |
+| 2     | USART2       | PA3 |  PA2 | For VTX SM/IRC, etc.                                                                                    |
 
 
-### I2C with GPS port together. Use for BARO or compass etc 
+### I2C with GPS port together (for BARO, compass, etc.) 
 | Value | Identifier   |  SCL  |  SDA  | Notes                                                                                 |
 | ----- | ------------ | ---------| -------| ------------------------------------------------------------------------------------- |                                                                                      
 | 1     | I2C1         |    PB8   |  PB9   | With GPS output

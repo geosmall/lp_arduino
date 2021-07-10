@@ -368,13 +368,12 @@ void PIOS_Board_Init(void)
     if (PIOS_SPI_Init(&pios_spi_gyro_id, &pios_spi_gyro_cfg)) {
         PIOS_DEBUG_Assert(0);
     }
-#if false
 
     /* Set up the SPI interface to the flash and rfm22b */
     if (PIOS_SPI_Init(&pios_spi_telem_flash_id, &pios_spi_telem_flash_cfg)) {
         PIOS_DEBUG_Assert(0);
     }
-#endif
+
 #ifdef PIOS_INCLUDE_I2C
     if (PIOS_I2C_Init(&pios_i2c_pressure_adapter_id, &pios_i2c_pressure_adapter_cfg)) {
         PIOS_DEBUG_Assert(0);
@@ -604,6 +603,15 @@ void PIOS_Board_Init(void)
     /* Configure IO ports */
     uint8_t hwsettings_DSMxBind;
     HwSettingsDSMxBindGet(&hwsettings_DSMxBind);
+
+// GLS - temporary <<<<<
+// extern void setFlexiPortOptionToDebugConsole(void);
+// setFlexiPortOptionToDebugConsole();
+    HwSettingsData currentHwSettings;
+    HwSettingsGet(&currentHwSettings);
+    currentHwSettings.RM_MainPort = HWSETTINGS_RM_MAINPORT_DEBUGCONSOLE;
+    HwSettingsSet(&currentHwSettings);    
+// GLS - temporary <<<<<
 
     /* Configure main USART port */
     uint8_t hwsettings_mainport;
@@ -928,6 +936,9 @@ void PIOS_Board_Init(void)
     // trigger a config check if actuatorsettings are updated
     ActuatorSettingsInitialize();
     ActuatorSettingsConnectCallback(ActuatorSettingsUpdatedCb);
+
+    DEBUG_PRINTF(2, "Board complete\r\n");
+
 }
 
 SystemAlarmsExtendedAlarmStatusOptions RevoNanoConfigHook()

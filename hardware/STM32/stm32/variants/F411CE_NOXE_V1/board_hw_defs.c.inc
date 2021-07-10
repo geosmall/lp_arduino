@@ -117,13 +117,20 @@ const struct pios_gpio_cfg *PIOS_BOARD_HW_DEFS_GetLedCfg(__attribute__((unused))
 /*
  * SPI1 Interface
  * Used for MPU6000 gyro and accelerometer
+ * Resources used:
+ *   SPI1_SCK  = PA5
+ *   SPI1_MISO = PA6
+ *   SPI1_MOSI = PA7
+ *   Soft_CS   = PA4
+ *   SPI1 Rx = DMA2_Stream0
+ *   SPI1 Tx = DMA2_Stream3
  */
 void PIOS_SPI_gyro_irq_handler(void);
-void DMA1_Stream3_IRQHandler(void) __attribute__((alias("PIOS_SPI_gyro_irq_handler")));
-void DMA1_Stream4_IRQHandler(void) __attribute__((alias("PIOS_SPI_gyro_irq_handler")));
+void DMA2_Stream0_IRQHandler(void) __attribute__((alias("PIOS_SPI_gyro_irq_handler")));
+void DMA2_Stream3_IRQHandler(void) __attribute__((alias("PIOS_SPI_gyro_irq_handler")));
 static const struct pios_spi_cfg pios_spi_gyro_cfg = {
-    .regs  = SPI2,
-    .remap = GPIO_AF_SPI2,
+    .regs  = SPI1,
+    .remap = GPIO_AF_SPI1,
     .init  = {
         .SPI_Mode              = SPI_Mode_Master,
         .SPI_Direction         = SPI_Direction_2Lines_FullDuplex,
@@ -140,7 +147,7 @@ static const struct pios_spi_cfg pios_spi_gyro_cfg = {
         .irq                                       = {
             .flags = (DMA_IT_TCIF0 | DMA_IT_TEIF0 | DMA_IT_HTIF0),
             .init  = {
-                .NVIC_IRQChannel    = DMA1_Stream4_IRQn,
+                .NVIC_IRQChannel    = DMA2_Stream0_IRQn,
                 .NVIC_IRQChannelPreemptionPriority = PIOS_IRQ_PRIO_HIGH,
                 .NVIC_IRQChannelSubPriority        = 0,
                 .NVIC_IRQChannelCmd = ENABLE,
@@ -148,10 +155,10 @@ static const struct pios_spi_cfg pios_spi_gyro_cfg = {
         },
 
         .rx                                        = {
-            .channel = DMA1_Stream3,
+            .channel = DMA2_Stream0,
             .init    = {
-                .DMA_Channel            = DMA_Channel_0,
-                .DMA_PeripheralBaseAddr = (uint32_t)&(SPI2->DR),
+                .DMA_Channel            = DMA_Channel_3,
+                .DMA_PeripheralBaseAddr = (uint32_t)&(SPI1->DR),
                 .DMA_DIR                = DMA_DIR_PeripheralToMemory,
                 .DMA_PeripheralInc      = DMA_PeripheralInc_Disable,
                 .DMA_MemoryInc          = DMA_MemoryInc_Enable,
@@ -166,10 +173,10 @@ static const struct pios_spi_cfg pios_spi_gyro_cfg = {
             },
         },
         .tx                                        = {
-            .channel = DMA1_Stream4,
+            .channel = DMA2_Stream3,
             .init    = {
-                .DMA_Channel            = DMA_Channel_0,
-                .DMA_PeripheralBaseAddr = (uint32_t)&(SPI2->DR),
+                .DMA_Channel            = DMA_Channel_3,
+                .DMA_PeripheralBaseAddr = (uint32_t)&(SPI1->DR),
                 .DMA_DIR                = DMA_DIR_MemoryToPeripheral,
                 .DMA_PeripheralInc      = DMA_PeripheralInc_Disable,
                 .DMA_MemoryInc          = DMA_MemoryInc_Enable,
@@ -185,9 +192,9 @@ static const struct pios_spi_cfg pios_spi_gyro_cfg = {
         },
     },
     .sclk                                          = {
-        .gpio = GPIOB,
+        .gpio = GPIOA,
         .init = {
-            .GPIO_Pin   = GPIO_Pin_13,
+            .GPIO_Pin   = GPIO_Pin_5,
             .GPIO_Speed = GPIO_Speed_100MHz,
             .GPIO_Mode  = GPIO_Mode_AF,
             .GPIO_OType = GPIO_OType_PP,
@@ -195,9 +202,9 @@ static const struct pios_spi_cfg pios_spi_gyro_cfg = {
         },
     },
     .miso                                          = {
-        .gpio = GPIOB,
+        .gpio = GPIOA,
         .init = {
-            .GPIO_Pin   = GPIO_Pin_14,
+            .GPIO_Pin   = GPIO_Pin_6,
             .GPIO_Speed = GPIO_Speed_50MHz,
             .GPIO_Mode  = GPIO_Mode_AF,
             .GPIO_OType = GPIO_OType_PP,
@@ -205,9 +212,9 @@ static const struct pios_spi_cfg pios_spi_gyro_cfg = {
         },
     },
     .mosi                                          = {
-        .gpio = GPIOB,
+        .gpio = GPIOA,
         .init = {
-            .GPIO_Pin   = GPIO_Pin_15,
+            .GPIO_Pin   = GPIO_Pin_7,
             .GPIO_Speed = GPIO_Speed_50MHz,
             .GPIO_Mode  = GPIO_Mode_AF,
             .GPIO_OType = GPIO_OType_PP,
@@ -217,9 +224,9 @@ static const struct pios_spi_cfg pios_spi_gyro_cfg = {
     .slave_count                                   = 1,
     .ssel                                          = {
         {
-            .gpio = GPIOB,
+            .gpio = GPIOA,
             .init = {
-                .GPIO_Pin   = GPIO_Pin_12,
+                .GPIO_Pin   = GPIO_Pin_4,
                 .GPIO_Speed = GPIO_Speed_50MHz,
                 .GPIO_Mode  = GPIO_Mode_OUT,
                 .GPIO_OType = GPIO_OType_PP,
@@ -239,15 +246,22 @@ void PIOS_SPI_gyro_irq_handler(void)
 #if defined(PIOS_INCLUDE_FLASH)
 
 /*
- * SPI3 Interface
+ * SPI2 Interface
  * Used for Flash
+ * Resources used:
+ *   SPI2_SCK  = PB13
+ *   SPI2_MISO = PB14
+ *   SPI2_MOSI = PB15
+ *   Soft_CS   = PB2
+ *   SPI2 Rx = DMA1_Stream3
+ *   SPI2 Tx = DMA1_Stream4
  */
 void PIOS_SPI_telem_flash_irq_handler(void);
-void DMA1_Stream0_IRQHandler(void) __attribute__((alias("PIOS_SPI_telem_flash_irq_handler")));
-void DMA1_Stream5_IRQHandler(void) __attribute__((alias("PIOS_SPI_telem_flash_irq_handler")));
+void DMA1_Stream3_IRQHandler(void) __attribute__((alias("PIOS_SPI_telem_flash_irq_handler")));
+void DMA1_Stream4_IRQHandler(void) __attribute__((alias("PIOS_SPI_telem_flash_irq_handler")));
 static const struct pios_spi_cfg pios_spi_telem_flash_cfg = {
-    .regs  = SPI3,
-    .remap = GPIO_AF_SPI3,
+    .regs  = SPI2,
+    .remap = GPIO_AF_SPI2,
     .init  = {
         .SPI_Mode              = SPI_Mode_Master,
         .SPI_Direction         = SPI_Direction_2Lines_FullDuplex,
@@ -265,7 +279,7 @@ static const struct pios_spi_cfg pios_spi_telem_flash_cfg = {
             // Note this is the stream ID that triggers interrupts (in this case RX)
             .flags = (DMA_IT_TCIF0 | DMA_IT_TEIF0 | DMA_IT_HTIF0),
             .init  = {
-                .NVIC_IRQChannel    = DMA1_Stream0_IRQn,
+                .NVIC_IRQChannel    = DMA1_Stream3_IRQn,
                 .NVIC_IRQChannelPreemptionPriority = PIOS_IRQ_PRIO_HIGH,
                 .NVIC_IRQChannelSubPriority        = 0,
                 .NVIC_IRQChannelCmd = ENABLE,
@@ -273,10 +287,10 @@ static const struct pios_spi_cfg pios_spi_telem_flash_cfg = {
         },
 
         .rx                                        = {
-            .channel = DMA1_Stream0,
+            .channel = DMA1_Stream3,
             .init    = {
                 .DMA_Channel            = DMA_Channel_0,
-                .DMA_PeripheralBaseAddr = (uint32_t)&(SPI3->DR),
+                .DMA_PeripheralBaseAddr = (uint32_t)&(SPI2->DR),
                 .DMA_DIR                = DMA_DIR_PeripheralToMemory,
                 .DMA_PeripheralInc      = DMA_PeripheralInc_Disable,
                 .DMA_MemoryInc          = DMA_MemoryInc_Enable,
@@ -292,10 +306,10 @@ static const struct pios_spi_cfg pios_spi_telem_flash_cfg = {
             },
         },
         .tx                                        = {
-            .channel = DMA1_Stream5,
+            .channel = DMA1_Stream4,
             .init    = {
                 .DMA_Channel            = DMA_Channel_0,
-                .DMA_PeripheralBaseAddr = (uint32_t)&(SPI3->DR),
+                .DMA_PeripheralBaseAddr = (uint32_t)&(SPI2->DR),
                 .DMA_DIR                = DMA_DIR_MemoryToPeripheral,
                 .DMA_PeripheralInc      = DMA_PeripheralInc_Disable,
                 .DMA_MemoryInc          = DMA_MemoryInc_Enable,
@@ -311,9 +325,9 @@ static const struct pios_spi_cfg pios_spi_telem_flash_cfg = {
         },
     },
     .sclk                                          = {
-        .gpio = GPIOC,
+        .gpio = GPIOB,
         .init = {
-            .GPIO_Pin   = GPIO_Pin_10,
+            .GPIO_Pin   = GPIO_Pin_13,
             .GPIO_Speed = GPIO_Speed_100MHz,
             .GPIO_Mode  = GPIO_Mode_AF,
             .GPIO_OType = GPIO_OType_PP,
@@ -321,9 +335,9 @@ static const struct pios_spi_cfg pios_spi_telem_flash_cfg = {
         },
     },
     .miso                                          = {
-        .gpio = GPIOC,
+        .gpio = GPIOB,
         .init = {
-            .GPIO_Pin   = GPIO_Pin_11,
+            .GPIO_Pin   = GPIO_Pin_14,
             .GPIO_Speed = GPIO_Speed_50MHz,
             .GPIO_Mode  = GPIO_Mode_AF,
             .GPIO_OType = GPIO_OType_PP,
@@ -331,9 +345,9 @@ static const struct pios_spi_cfg pios_spi_telem_flash_cfg = {
         },
     },
     .mosi                                          = {
-        .gpio = GPIOC,
+        .gpio = GPIOB,
         .init = {
-            .GPIO_Pin   = GPIO_Pin_12,
+            .GPIO_Pin   = GPIO_Pin_15,
             .GPIO_Speed = GPIO_Speed_50MHz,
             .GPIO_Mode  = GPIO_Mode_AF,
             .GPIO_OType = GPIO_OType_PP,
@@ -342,10 +356,10 @@ static const struct pios_spi_cfg pios_spi_telem_flash_cfg = {
     },
     .slave_count                                   = 2,
     .ssel                                          = {
-        { // RFM22b
-            .gpio = GPIOA,
+        { // OSD MAX7456
+            .gpio = GPIOB,
             .init = {
-                .GPIO_Pin   = GPIO_Pin_15,
+                .GPIO_Pin   = GPIO_Pin_12,
                 .GPIO_Speed = GPIO_Speed_50MHz,
                 .GPIO_Mode  = GPIO_Mode_OUT,
                 .GPIO_OType = GPIO_OType_PP,
@@ -355,7 +369,7 @@ static const struct pios_spi_cfg pios_spi_telem_flash_cfg = {
         { // Flash
             .gpio = GPIOB,
             .init = {
-                .GPIO_Pin   = GPIO_Pin_3,
+                .GPIO_Pin   = GPIO_Pin_2,
                 .GPIO_Speed = GPIO_Speed_50MHz,
                 .GPIO_Mode  = GPIO_Mode_OUT,
                 .GPIO_OType = GPIO_OType_PP,
@@ -373,7 +387,6 @@ void PIOS_SPI_telem_flash_irq_handler(void)
 }
 
 #endif /* PIOS_INCLUDE_FLASH */
-
 
 #endif /* PIOS_INCLUDE_SPI */
 
@@ -1308,6 +1321,21 @@ static const struct pios_tim_clock_cfg tim_3_cfg = {
  *      o5  |   PA0     |   TIM5_CH1    |   ADC1_0
  *      o6  |   PA1     |   TIM5_CH2    |   ADC1_1
  */
+
+/* Pios servo configuration structures (NOXE V1)            
+              IO   Pin    TIM_Chn    DMA_Chn 
+PB1(RSSI)   | i1 | PB1  | TIM3_CH4 | DMA1_Stream2
+PB10(CAM-C) | i2 | PB10 | TIM2_CH3 | DMA1_Stream1
+PA15(LED)   | i3 | PA15 | TIM2_CH1 | DMA1_Stream5 << 
+PB5(VTX_SW) | i4 | PB5  | TIM3_CH2 | DMA1_Stream5 <<
+                
+ESC1(PWM1)  | o1 | PA8  | TIM1_CH1 | DMA2_Stream1
+ESC2(PWM2)  | o2 | PA9  | TIM1_CH2 | DMA2_Stream2
+ESC3(PWM3)  | o3 | PA10 | TIM1_CH3 | DMA2_Stream6
+ESC4(PWM4)  | o4 | PB0  | TIM3_CH3 | DMA1_Stream7
+
+*/ 
+
 #include <pios_servo_priv.h>
 #include <pios_servo_config.h>
 static const struct pios_tim_channel dummmy_timer =
@@ -1315,24 +1343,20 @@ static const struct pios_tim_channel dummmy_timer =
 
 static struct pios_tim_channel pios_tim_servoport_all_pins[] = {
     // TIMER, CHANNEL, GPIO, PIN
-    TIM_SERVO_CHANNEL_CONFIG(TIM1,  3, A, 10),
-    TIM_SERVO_CHANNEL_CONFIG(TIM2,  2, B, 3),
-    TIM_SERVO_CHANNEL_CONFIG(TIM10, 1, B, 8),
-    TIM_SERVO_CHANNEL_CONFIG(TIM11, 1, B, 9),
-    TIM_SERVO_CHANNEL_CONFIG(TIM5,  1, A, 0),
-    TIM_SERVO_CHANNEL_CONFIG(TIM5,  2, A, 1),
-    // PWM pins on FlexiIO(receiver) port
-    TIM_SERVO_CHANNEL_CONFIG(TIM2,  3, B, 10),
-    TIM_SERVO_CHANNEL_CONFIG(TIM3,  3, B, 0),
-    TIM_SERVO_CHANNEL_CONFIG(TIM3,  2, A, 7),
-    TIM_SERVO_CHANNEL_CONFIG(TIM3,  1, A, 6),
-    TIM_SERVO_CHANNEL_CONFIG(TIM2,  1, A, 5),
     TIM_SERVO_CHANNEL_CONFIG(TIM3,  4, B, 1),
+    TIM_SERVO_CHANNEL_CONFIG(TIM2,  3, B, 10),
+    TIM_SERVO_CHANNEL_CONFIG(TIM2,  1, A, 15),
+    TIM_SERVO_CHANNEL_CONFIG(TIM3,  2, B, 5),
+    // PWM pins on FlexiIO(receiver) port
+    TIM_SERVO_CHANNEL_CONFIG(TIM1,  1, A, 8),
+    TIM_SERVO_CHANNEL_CONFIG(TIM1,  2, A, 9),
+    TIM_SERVO_CHANNEL_CONFIG(TIM1,  3, A, 10),
+    TIM_SERVO_CHANNEL_CONFIG(TIM3,  3, B, 0),
 };
 
-#define PIOS_SERVOPORT_ALL_PINS_PWMOUT        6
-#define PIOS_SERVOPORT_ALL_PINS_PWMOUT_IN     (NELEMENTS(pios_tim_servoport_all_pins))
-#define PIOS_SERVOPORT_ALL_PINS_PWMOUT_IN_PPM (PIOS_SERVOPORT_ALL_PINS_PWMOUT_IN - 1)
+#define PIOS_SERVOPORT_ALL_PINS_PWMOUT        4
+#define PIOS_SERVOPORT_ALL_PINS_PWMOUT_IN     (NELEMENTS(pios_tim_servoport_all_pins)) // 8
+#define PIOS_SERVOPORT_ALL_PINS_PWMOUT_IN_PPM (PIOS_SERVOPORT_ALL_PINS_PWMOUT_IN - 1) // 7
 
 
 const struct pios_servo_cfg pios_servo_cfg_out = {
@@ -1388,12 +1412,10 @@ const struct pios_servo_cfg pios_servo_cfg_out_in = {
 #if defined(PIOS_INCLUDE_PWM) || defined(PIOS_INCLUDE_PPM)
 #include <pios_pwm_priv.h>
 static const struct pios_tim_channel pios_tim_rcvrport_all_channels[] = {
-    TIM_SERVO_CHANNEL_CONFIG(TIM2, 3, B, 10),
-    TIM_SERVO_CHANNEL_CONFIG(TIM3, 4, B, 1),
-    TIM_SERVO_CHANNEL_CONFIG(TIM3, 3, B, 0),
-    TIM_SERVO_CHANNEL_CONFIG(TIM3, 2, A, 7),
-    TIM_SERVO_CHANNEL_CONFIG(TIM3, 1, A, 6),
-    TIM_SERVO_CHANNEL_CONFIG(TIM2, 1, A, 5),
+    TIM_SERVO_CHANNEL_CONFIG(TIM3,  4, B, 1),
+    TIM_SERVO_CHANNEL_CONFIG(TIM2,  3, B, 10),
+    TIM_SERVO_CHANNEL_CONFIG(TIM2,  1, A, 15),
+    TIM_SERVO_CHANNEL_CONFIG(TIM3,  2, B, 5),
 };
 
 const struct pios_pwm_cfg pios_pwm_cfg = {
